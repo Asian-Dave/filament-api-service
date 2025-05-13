@@ -12,8 +12,8 @@ return [
     'resources' => [
         'token' => [
             'pages' => [
-                'list_records' => \Rupadana\FilamentApiService\Resources\TokenResource\Pages\ListTokens::class,
-                'create_record' => \Rupadana\FilamentApiService\Resources\TokenResource\Pages\CreateToken::class, 
+                'list_records' => \Rupadana\ApiService\Resources\TokenResource\Pages\ListTokens::class,
+                'create_record' => \Rupadana\ApiService\Resources\TokenResource\Pages\CreateToken::class, 
             ],
           
             'sync_token_abilities_to_user_permissions' => false,
