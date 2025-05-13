@@ -1,6 +1,6 @@
 {
-  "name": "rupadana/filament-api-service",
-  "description": "A simple api service for supporting filamentphp",
+  "name": "asian-dave/filament-api-service-custom",
+"description": "Custom version of Filament API Service for my project.",
   "keywords": [
     "rupadana",
     "laravel",
@@ -9,11 +9,12 @@
     "filament",
     "filament api"
   ],
-  "homepage": "https://github.com/rupadana/api-service",
-  "support": {
-    "issues": "https://github.com/rupadana/api-service/issues",
-    "source": "https://github.com/rupadana/api-service"
-  },
+ "homepage": "https://github.com/Asian-Dave/filament-api-service",
+"support": {
+    "issues": "https://github.com/Asian-Dave/filament-api-service/issues",
+    "source": "https://github.com/Asian-Dave/filament-api-service"
+},
+
   "license": "MIT",
   "authors": [
     {

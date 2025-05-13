@@ -24,7 +24,7 @@ class TokenResource extends Resource
 {
     protected static ?string $model = Token::class;
 
-    // protected static ?string $navigationIcon = 'heroicon-o-key';
+    protected static ?string $navigationIcon = 'heroicon-o-key';
 
     protected static bool $isScopedToTenant = false;
 
@@ -32,13 +32,14 @@ class TokenResource extends Resource
     {
         return $form
             ->schema([
-                Section::make( __('api-service::api-service.section.general'))
+                Section::make(__('api-service::api-service.section.general'))
                     ->schema([
                         TextInput::make('name')
                             ->label(__('api-service::api-service.field.name'))
                             ->required(),
                         Select::make('tokenable_id')
-                            ->options(User::all()->pluck('name', 'id'))
+                    
+                            ->options(User::apiUserService()->pluck('name', 'id'))
                             ->label(__('api-service::api-service.field.user'))
                             ->hidden(function () {
                                 $user = auth()->user();
@@ -48,8 +49,7 @@ class TokenResource extends Resource
                                 if ($policy === false) {
                                     return false;
                                 }
-
-                                return ! $user->hasRole('super_admin');
+                                return !($user && method_exists($user, 'hasRole') && $user->hasRole('super_admin'));
                             })
                             ->required(),
                     ]),
@@ -80,8 +80,8 @@ class TokenResource extends Resource
                     CheckboxList::make('ability')
                         ->label(__('api-service::api-service.field.ability'))
                         ->options($extractedAbilities)
-                        ->selectAllAction(fn (Action $action) => $action->label( __('api-service::api-service.action.select_all')))
-                        ->deselectAllAction(fn (Action $action) => $action->label( __('api-service::api-service.action.unselect_all')))
+                        ->selectAllAction(fn(Action $action) => $action->label(__('api-service::api-service.action.select_all')))
+                        ->deselectAllAction(fn(Action $action) => $action->label(__('api-service::api-service.action.unselect_all')))
                         ->bulkToggleable(),
                 ])
                 ->collapsible();
