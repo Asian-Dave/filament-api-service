@@ -38,7 +38,7 @@ class TokenResource extends Resource
                             ->label(__('api-service::api-service.field.name'))
                             ->required(),
                         Select::make('tokenable_id')
-                    
+                
                             ->options(User::apiUserService()->pluck('name', 'id'))
                             ->label(__('api-service::api-service.field.user'))
                             ->hidden(function () {
@@ -59,7 +59,6 @@ class TokenResource extends Resource
                     ->schema(static::getAbilitiesSchema()),
             ]);
     }
-
     public static function getAbilitiesSchema(): array
     {
         $schema = [];
