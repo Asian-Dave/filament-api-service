@@ -9,17 +9,7 @@ return [
             'icon' => 'heroicon-o-key',
         ],
     ],
-    'resources' => [
-        'token' => [
-            'pages' => [
-                'list_records' => \Rupadana\ApiService\Resources\TokenResource\Pages\ListTokens::class,
-                'create_record' => \Rupadana\ApiService\Resources\TokenResource\Pages\CreateToken::class, 
-            ],
-          
-            'sync_token_abilities_to_user_permissions' => false,
-            'permission_sync_mode' => 'merge', 
-        ],
-    ],
+ 
     'models' => [
         'token' => [
             'enable_policy' => true,

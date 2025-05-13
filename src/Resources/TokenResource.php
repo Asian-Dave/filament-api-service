@@ -136,13 +136,10 @@ class TokenResource extends Resource
 
     public static function getPages(): array
     {
-        $listPage = config('api-service.resources.token.pages.list_records', Pages\ListTokensPage::class);
-        $createPage = config('api-service.resources.token.pages.create_record', Pages\CreateTokenPage::class);
-        $pages = [
-            'index' => $listPage::route('/'),
-            'create' => $createPage::route('/create'),
+        return [
+            'index' => Pages\ListTokens::route('/'),
+            'create' => Pages\CreateToken::route('/create'),
         ];
-        return $pages;
     }
 
     public static function getCluster(): ?string
